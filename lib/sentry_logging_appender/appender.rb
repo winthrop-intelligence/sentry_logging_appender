@@ -22,8 +22,10 @@ module SentryLoggingAppender
       return false if log.name == 'Sentry'
       return false unless defined?(::Sentry)
       return false unless ::Sentry.initialized?
+
       structured_logger = ::Sentry.logger
       return false unless structured_logger
+
       context = formatter.call(log, self)
       payload = context.delete(:payload) || {}
       named_tags       = context[:named_tags] || {}
@@ -89,6 +91,7 @@ module SentryLoggingAppender
         end
       end
       return if user.empty?
+
       sources.each do |source|
         extras = source.delete(:user)
         user.merge!(extras) if extras.is_a?(Hash)

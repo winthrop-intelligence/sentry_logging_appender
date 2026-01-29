@@ -1,0 +1,42 @@
+PATH
+  remote: .
+  specs:
+    sentry_logging_appender (0.1.0)
+      semantic_logger
+      sentry-ruby
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    bigdecimal (4.0.1)
+    concurrent-ruby (1.3.6)
+    diff-lcs (1.6.2)
+    rspec (3.13.2)
+      rspec-core (~> 3.13.0)
+      rspec-expectations (~> 3.13.0)
+      rspec-mocks (~> 3.13.0)
+    rspec-core (3.13.6)
+      rspec-support (~> 3.13.0)
+    rspec-expectations (3.13.5)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.13.0)
+    rspec-mocks (3.13.7)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.13.0)
+    rspec-support (3.13.7)
+    semantic_logger (4.17.0)
+      concurrent-ruby (~> 1.0)
+    sentry-ruby (6.3.0)
+      bigdecimal
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+
+PLATFORMS
+  ruby
+  x86_64-linux
+
+DEPENDENCIES
+  rspec
+  sentry_logging_appender!
+
+BUNDLED WITH
+   2.6.3

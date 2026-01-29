@@ -1,0 +1,31 @@
+# Ignore bundler config and installed gems
+/.bundle/
+/vendor/bundle/
+/vendor/cache/
+/vendor/gems/
+/vendor/ruby/
+
+# Ignore gemspec and gem build artifacts
+*.gem
+pkg/
+
+# Ignore log, temp, and coverage files
+log/
+tmp/
+coverage/
+.byebug_history
+
+# Ignore editor and OS files
+*.swp
+*.swo
+*~
+.DS_Store
+.idea/
+.vscode/
+*.iml
+
+# Ignore test output
+test/tmp/
+test/version_tmp/
+spec/tmp/
+spec/version_tmp/

@@ -1,3 +1,4 @@
+require_relative "lib/sentry_logging_appender/version"
 Gem::Specification.new do |spec|
   spec.name          = "sentry_logging_appender"
   spec.version       = SentryLoggingAppender::VERSION
@@ -14,4 +15,6 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "semantic_logger"
   spec.add_dependency "sentry-ruby"
+
+  spec.add_development_dependency "rspec"
 end

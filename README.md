@@ -19,10 +19,18 @@ gem install ./sentry_logging_appender-0.1.0.gem
 
 ## Usage
 
+
 ```ruby
+# config/environments/production.rb
 require 'sentry_logging_appender'
-# Add usage instructions here
+
+# Only add the Sentry appender if SENTRY_DSN is present
+if ENV['SENTRY_DSN'].present?
+	config.semantic_logger.add_appender(appender: SentryLoggingAppender::Appender.new)
+end
 ```
+
+This will forward all Semantic Logger events to Sentry in production when SENTRY_DSN is set.
 
 ## Development
 

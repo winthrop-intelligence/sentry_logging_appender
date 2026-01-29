@@ -6,7 +6,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = "Semantic Logger appender for Sentry."
   spec.description   = "A Semantic Logger appender that sends logs directly to Sentry."
-  spec.homepage      = "https://github.com/winthropintelligence/sentry_logging_appender"
+  spec.homepage      = "https://github.com/winthrop-intelligence/sentry_logging_appender"
   spec.license       = "MIT"
 
   spec.files         = Dir["lib/**/*.rb"]

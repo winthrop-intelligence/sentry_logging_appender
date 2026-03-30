@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    sentry_logging_appender (0.1.0)
+    sentry_logging_appender (0.2.0)
       semantic_logger
       sentry-ruby
 

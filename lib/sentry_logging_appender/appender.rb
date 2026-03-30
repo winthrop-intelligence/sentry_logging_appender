@@ -91,7 +91,14 @@ module SentryLoggingAppender
     end
 
     def extract_message(context, log)
-      context.delete(:message) || log.message
+      normalize_message(context.delete(:message) || log.message || log.cleansed_message)
+    end
+
+    def normalize_message(message)
+      return message if message.is_a?(String)
+      return '' if message.nil?
+
+      message.inspect
     end
 
     def merge_context_and_payload!(attributes, context, payload)

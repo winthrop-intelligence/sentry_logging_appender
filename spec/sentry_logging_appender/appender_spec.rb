@@ -50,6 +50,23 @@ RSpec.describe SentryLoggingAppender::Appender do
     expect(sentry_logger).to have_received(:info).with('Hello, Sentry!', hash_including(:origin, :logger))
   end
 
+  it 'stringifies structured messages before sending them to Sentry' do # rubocop:disable RSpec/ExampleLength
+    formatter = instance_double(SemanticLogger::Formatters::Raw)
+    allow(formatter).to receive(:call).and_return(
+      message: { event: 'Hello, Sentry!', count: 2 },
+      payload: {},
+      named_tags: {}
+    )
+    allow(appender).to receive(:formatter).and_return(formatter)
+
+    appender.log(log_event)
+
+    expect(sentry_logger).to have_received(:info).with(
+      a_string_including('Hello, Sentry!', 'count', '2'),
+      hash_including(:origin, :logger)
+    )
+  end
+
   it 'skips logging if Sentry is not initialized' do
     allow(Sentry).to receive(:initialized?).and_return(false)
     result = appender.log(log_event)
